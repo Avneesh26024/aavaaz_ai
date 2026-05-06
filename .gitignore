@@ -24,7 +24,14 @@ logs/
 
 # Demos
 backend/demos/
-backend/engines/facial/weights/
+
+# Facial weights: keep folder, ignore large binaries
+backend/engines/facial/weights/*.pth
+backend/engines/facial/weights/*.pkl
+backend/engines/facial/weights/*.pt
+backend/engines/facial/weights/*.bin
+!backend/engines/facial/weights/README.md
+!backend/engines/facial/weights/para.py
 
 
 # OS files

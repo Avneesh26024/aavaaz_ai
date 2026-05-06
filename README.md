@@ -140,6 +140,24 @@ python manage.py migrate
 daphne -b 0.0.0.0 -p 8000 Aavaaz.asgi:application
 ```
 
+### Facial Weights (OpenFace)
+
+The facial engine expects weights in `backend/engines/facial/weights/`.
+
+If the weights are not present locally, download them from the links in
+`backend/engines/facial/weights/README.md` and place them in:
+
+```
+backend/engines/facial/weights/
+```
+
+Required files include:
+
+- `Alignment_RetinaFace.pth`
+- `MTL_backbone.pth`
+- `mobilenet0.25_Final.pth`
+- `stage2_epoch_7_loss_1.1606_acc_0.5589.pth`
+
 ### Frontend Setup
 
 1. Install dependencies:
