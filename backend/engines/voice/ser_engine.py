@@ -140,17 +140,31 @@ class SenseVoiceSEREngine(BaseSEREngine):
 		self._interval_seconds = int(self.config.get("interval_seconds", 4))
 		self._max_buffer_seconds = int(self.config.get("max_buffer_seconds", 30))
 
+		repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+		default_model_dir = os.path.expanduser(
+			"~/.cache/modelscope/hub/models/iic/SenseVoiceSmall"
+		)
+		default_vad_model = os.path.expanduser(
+			"~/.cache/modelscope/hub/models/iic/speech_fsmn_vad_zh-cn-16k-common-pytorch"
+		)
+		default_remote_code = os.path.join(
+			repo_root,
+			"test_check",
+			"SenseVoice",
+			"model.py",
+		)
+
 		self._model_dir = self.config.get(
 			"model_dir",
-			"/home/avneesh/.cache/modelscope/hub/models/iic/SenseVoiceSmall",
+			os.getenv("SENSEVOICE_MODEL_DIR", default_model_dir),
 		)
 		self._vad_model = self.config.get(
 			"vad_model",
-			"/home/avneesh/.cache/modelscope/hub/models/iic/speech_fsmn_vad_zh-cn-16k-common-pytorch",
+			os.getenv("SENSEVOICE_VAD_MODEL_DIR", default_vad_model),
 		)
 		self._remote_code = self.config.get(
 			"remote_code",
-			"/home/avneesh/Aavaaz_Engine/test_check/SenseVoice/model.py",
+			os.getenv("SENSEVOICE_REMOTE_CODE", default_remote_code),
 		)
 		self._device = self.config.get("device", "cuda:0")
 
