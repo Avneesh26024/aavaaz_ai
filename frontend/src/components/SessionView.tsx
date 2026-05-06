@@ -1,7 +1,7 @@
 // src/components/SessionView.tsx
 import { useCallback, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Scribe, RealtimeEvents } from '@elevenlabs/client';
+import { Scribe, RealtimeEvents, type CommitStrategy } from '@elevenlabs/client';
 
 import type { SessionStatus } from '../types/session';
 import { useBackendSocket } from '../hooks/useBackendSocket';
@@ -142,7 +142,7 @@ export function SessionView() {
     const connection = Scribe.connect({
       token,
       modelId: 'scribe_v2_realtime',
-      commitStrategy: 'vad',
+      commitStrategy: 'vad' as CommitStrategy,
       vadSilenceThresholdSecs: 1.2,
       microphone: {
         echoCancellation: true,
