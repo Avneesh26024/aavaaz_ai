@@ -1,0 +1,116 @@
+/* src/components/WebcamFeed.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--panel-2);
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  overflow: hidden;
+  box-shadow:
+    0 18px 36px rgba(90, 70, 50, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scaleX(-1); /* mirror the webcam */
+}
+
+.permissionOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 24px;
+}
+
+.permissionOverlay svg {
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.permissionError {
+  color: var(--danger);
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.statusDot.idle    { background: #6b6b8a; }
+.statusDot.starting { background: var(--accent-2); animation: pulse 1.2s infinite; }
+.statusDot.active  { background: var(--success); animation: pulse 2s infinite; }
+.statusDot.ending  { background: #f2c27c; }
+.statusDot.ended   { background: #6b6b8a; }
+.statusDot.error   { background: var(--danger); }
+
+.statusText {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.button {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.button:active { transform: scale(0.98); }
+.button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.startButton {
+  background: linear-gradient(135deg, #cbb398, #b99a7f);
+  color: #2f2a25;
+  box-shadow: 0 10px 24px rgba(154, 123, 99, 0.25);
+}
+
+.startButton:hover:not(:disabled) { opacity: 0.88; }
+
+.endButton {
+  background: transparent;
+  color: #7c4d4d;
+  border: 1.5px solid rgba(204, 107, 107, 0.5);
+}
+
+.endButton:hover:not(:disabled) { background: rgba(248, 113, 113, 0.08); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}

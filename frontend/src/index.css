@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+/* src/index.css */
+
+:root {
+  --bg-0: #efe7dc;
+  --bg-1: #d7c5a8;
+  --panel: #f4ede2;
+  --panel-2: #f1e7d9;
+  --stroke: #e1d4c2;
+  --stroke-strong: #d2c1ad;
+  --text: #2f2a25;
+  --muted: #7a6f63;
+  --accent: #9a7b63;
+  --accent-2: #c9ad8f;
+  --success: #5fbf8a;
+  --danger: #cc6b6b;
+  --glow: rgba(154, 123, 99, 0.22);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-0);
+}
+
+body {
+  font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default button styles globally */
+button {
+  font-family: inherit;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(154, 123, 99, 0.25);
+  color: var(--text);
+}

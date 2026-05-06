@@ -1,0 +1,32 @@
+# Environment files
+.env
+frontend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs
+logs/
+*.log
+
+# Local databases
+*.sqlite3
+
+# Demos
+backend/demos/
+backend/engines/facial/weights/
+test_check/
+
+# OS files
+.DS_Store
+Thumbs.db

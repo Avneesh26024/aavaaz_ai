@@ -1,0 +1,63 @@
+/* src/components/TranscriptPanel.module.css */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+  max-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scroll-behavior: smooth;
+}
+
+.scrollArea::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollArea::-webkit-scrollbar-track { background: transparent; }
+.scrollArea::-webkit-scrollbar-thumb { background: #2a2a3c; border-radius: 2px; }
+
+.entry {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  border-radius: 6px;
+  padding: 2px 0;
+  transition: opacity 0.2s ease;
+}
+
+.committed {
+  color: var(--text);
+}
+
+.partial {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.empty {
+  color: rgba(151, 163, 185, 0.5);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin: auto;
+  text-align: center;
+}

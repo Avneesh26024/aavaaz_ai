@@ -1,0 +1,217 @@
+/* src/components/SessionView.module.css */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(201, 173, 143, 0.35), transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(239, 231, 220, 0.6), transparent 55%),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+  color: var(--text);
+  font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.errorBanner {
+  font-size: 0.85rem;
+  color: var(--danger);
+  background: rgba(204, 107, 107, 0.1);
+  border: 1px solid rgba(204, 107, 107, 0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  gap: 16px;
+}
+
+.navPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background: rgba(244, 237, 226, 0.8);
+  border: 1px solid rgba(210, 193, 173, 0.6);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(90, 70, 50, 0.08);
+}
+
+.navButton {
+  border: none;
+  background: transparent;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.navActive {
+  background: rgba(154, 123, 99, 0.18);
+  color: var(--text);
+}
+
+.ctaButton {
+  border: 1px solid rgba(210, 193, 173, 0.6);
+  background: rgba(244, 237, 226, 0.95);
+  color: var(--text);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(90, 70, 50, 0.15);
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Left column ───────────────────────────────────────── */
+.left {
+  width: 34%;
+  min-width: 280px;
+  max-width: 420px;
+  padding: 28px 28px 32px;
+  border-right: 1px solid var(--stroke);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  background:
+    linear-gradient(180deg, rgba(244, 237, 226, 0.9), rgba(241, 231, 217, 0.8));
+}
+
+/* ── Right column ──────────────────────────────────────── */
+.right {
+  flex: 1;
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.right::-webkit-scrollbar { width: 4px; }
+.right::-webkit-scrollbar-track { background: transparent; }
+.right::-webkit-scrollbar-thumb { background: var(--stroke); border-radius: 2px; }
+
+/* ── Brand strip ───────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(154, 123, 99, 0.35);
+}
+
+.brandName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.panelShell {
+  background: rgba(244, 237, 226, 0.9);
+  border: 1px solid rgba(210, 193, 173, 0.7);
+  border-radius: 24px;
+  padding: 22px 22px 26px;
+  box-shadow: 0 30px 60px rgba(90, 70, 50, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100%;
+}
+
+.panelTabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  background: rgba(245, 236, 224, 0.9);
+  border: 1px solid rgba(210, 193, 173, 0.6);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: rgba(154, 123, 99, 0.18);
+  color: var(--text);
+}
+
+.panelBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+}
+
+.aboutCard {
+  background: rgba(244, 237, 226, 0.9);
+  border: 1px solid rgba(210, 193, 173, 0.6);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 16px 32px rgba(90, 70, 50, 0.12);
+}
+
+.aboutLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.aboutBody {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #3a342f;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    max-width: none;
+    border-right: none;
+    border-bottom: 1px solid var(--stroke);
+  }
+}
