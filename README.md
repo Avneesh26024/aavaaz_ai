@@ -8,9 +8,8 @@ Aavaaz Engine is a multimodal virtual therapist system that blends facial cues, 
 
 ## Architecture Overview
 
-- **Frontend (React + Vite)**
-  - Session orchestration, webcam capture, microphone capture, ElevenLabs Scribe (STT) client, and TTS playback.
-  - Key modules: `SessionView`, `useBackendSocket`, `useAudioCapture`, `useWebcamCapture`, `useTTS`.
+- **Frontend (React)**
+  - Lightweight client for streaming raw A/V to the backend, handling Scribe STT, and gapless TTS playback.
 - **Backend (Django + Channels)**
   - WebSocket pipeline for video frames, audio chunks, and committed transcripts.
   - REST endpoints for Scribe tokens and health checks.
@@ -68,11 +67,7 @@ Aavaaz Engine is a multimodal virtual therapist system that blends facial cues, 
 ### TTS Streaming
 - **Engine**: `backend/tts/engine.py` streams MP3 chunks from ElevenLabs and forwards base64 chunks to the frontend.
 
-### Frontend Capture + Playback
-- **WebSocket**: `frontend/src/hooks/useBackendSocket.ts` sends frames/audio/transcripts and receives responses/TTS.
-- **Audio capture**: `frontend/src/hooks/useAudioCapture.ts` captures PCM via AudioWorklet.
-- **Webcam capture**: `frontend/src/hooks/useWebcamCapture.ts` snapshots frames every 2.5s.
-- **TTS playback**: `frontend/src/hooks/useTTS.ts` decodes MP3 chunks for gapless playback.
+
 
 ## Key Endpoints
 
