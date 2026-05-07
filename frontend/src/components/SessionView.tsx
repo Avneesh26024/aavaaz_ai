@@ -137,13 +137,22 @@ export function SessionView() {
     videoRef.current = videoEl;
   }, []);
 
+  const shouldAcceptTranscript = useCallback((text: string): boolean => {
+    const cleaned = text.trim();
+    if (!cleaned) return false;
+    if (cleaned.endsWith('-') || cleaned.endsWith('...')) return false;
+    const words = cleaned.split(/\s+/).filter(Boolean);
+    if (words.length < 4 && cleaned.length < 20) return false;
+    return true;
+  }, []);
+
   // ── Scribe connection (microphone mode — same as working demo) ────────────────
   const connectScribe = useCallback(async (token: string) => {
     const connection = Scribe.connect({
       token,
       modelId: 'scribe_v2_realtime',
       commitStrategy: 'vad' as CommitStrategy,
-      vadSilenceThresholdSecs: 1.2,
+      vadSilenceThresholdSecs: 2.0,
       microphone: {
         echoCancellation: true,
         noiseSuppression: true,
@@ -164,7 +173,8 @@ export function SessionView() {
 
     connection.on(RealtimeEvents.COMMITTED_TRANSCRIPT, (event: { text: string }) => {
       setPartialText('');
-      if (!event.text.trim() || !sessionActiveRef.current) return;
+      if (!sessionActiveRef.current) return;
+      if (!shouldAcceptTranscript(event.text)) return;
       console.log('[Scribe] Committed:', event.text);
       const transcriptId = uuidv4();
       setConversation((prev) => [

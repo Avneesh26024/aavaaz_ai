@@ -30,6 +30,8 @@ backend/engines/facial/weights/*.pth
 backend/engines/facial/weights/*.pkl
 backend/engines/facial/weights/*.pt
 backend/engines/facial/weights/*.bin
+backend/engines/facial/weights/*.tar
+
 !backend/engines/facial/weights/README.md
 !backend/engines/facial/weights/para.py
 
