@@ -1,5 +1,9 @@
 # Aavaaz Engine
 
+**Live Demo(FRONTEND ONLY):** [https://aavaaz-ai.vercel.app](https://aavaaz-ai.vercel.app)
+
+> **Note**: For a deep dive into the architecture, end-to-end workflow, and subsystem mechanics, please refer to the [Detailed Architecture and Workflow README](DETAILED_README.md).
+
 Aavaaz Engine is a multimodal virtual therapist system that blends facial cues, vocal emotion, and live transcripts to generate empathetic CBT/DBT-style responses in real time. The system streams audio/video from the browser to a Django Channels backend, fuses signals, calls a Gemini LLM, and streams ElevenLabs TTS audio back to the client.
 
 ## Architecture Overview
